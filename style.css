@@ -23,28 +23,30 @@ Fonts:
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
   margin: 0;
-  padding: 30px;
-  background-color: #f0f0f0;
-  color: #333;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #8BD1CB 0%, #F5FAFF 100%);
+  color: #1f2d3d;
 }
 
-.container {
-  max-width: 750px;
-  margin: 50px auto;
-  background-color: #fff;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+.card {
+  border: 2px solid #FFC907;
 }
 
 h1 {
   text-align: center;
-  font-size: 30px;
-  font-weight: bold;
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  font-weight: 700;
   margin-bottom: 20px;
-  color: #333;
+  color: #2E9DF7;
+  font-family: 'Proxima Nova', 'Avenir', Arial, sans-serif;
+}
+
+.header-logo {
+  width: 200px;
+  height: auto;
+  display: block;
 }
 
 h1 img {
@@ -57,43 +59,53 @@ h1 img {
   font-size: 18px;
   margin-bottom: 30px;
   text-align: center;
+  color: #159A48;
+  font-weight: 600;
 }
 
 .stats {
-  display: flex;
-  justify-content: space-around;
   margin-bottom: 30px;
-  background-color: #f5f5f5;
-  padding: 15px 0;
-  border-radius: 8px;
+  background: linear-gradient(90deg, #FFC907 0%, #2E9DF7 100%);
+  padding: 12px;
+  border-radius: 12px;
+  color: white;
 }
 
 .stats p {
   margin: 0;
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: bold;
-  color: #333;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .game-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 15px;
   margin: 0 auto;
   max-width: 500px;
+  width: 100%;
 }
 
 .grid-cell {
-  background-color: #e8e8e8;
-  border-radius: 8px;
+  background: linear-gradient(145deg, #F5FAFF, #8BD1CB);
+  border: 2px solid #2E9DF7;
+  border-radius: 12px;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 10px rgba(46, 157, 247, 0.15);
+}
+
+.grid-cell:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(46, 157, 247, 0.25);
 }
 
 .water-can-wrapper {
@@ -130,14 +142,34 @@ h1 img {
 
 
 button {
-  background-color: #4CAF50;
+  background: linear-gradient(90deg, #4FCB53 0%, #159A48 100%);
   color: white;
   border: none;
   padding: 12px 24px;
   font-size: 16px;
-  border-radius: 8px;
+  font-weight: 700;
+  border-radius: 999px;
   cursor: pointer;
-  display: block;
-  margin: 30px auto 0;
-  transition: background-color 0.2s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 14px rgba(21, 154, 72, 0.25);
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(21, 154, 72, 0.3);
+}
+
+@media (max-width: 576px) {
+  .card-body {
+    padding: 1.25rem;
+  }
+
+  .header-logo {
+    width: 150px;
+    margin: 0 auto 0.5rem;
+  }
+
+  .game-grid {
+    gap: 10px;
+  }
 }
